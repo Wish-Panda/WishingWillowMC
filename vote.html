@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Vote | WishingWillowMC</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 12% 12%,
+          rgba(66, 232, 245, 0.9),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 88% 18%,
+          rgba(241, 84, 207, 0.8),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(138, 79, 255, 0.85),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #17bed0 0%,
+          #7445e8 45%,
+          #d93fc3 100%
+        );
+
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.6;
+
+      background-image:
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.9) 0 1px,
+          transparent 1.8px
+        ),
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.6) 0 1.5px,
+          transparent 2.3px
+        );
+
+      background-size:
+        42px 42px,
+        91px 91px;
+
+      background-position:
+        0 0,
+        28px 21px;
+    }
+
+    .page {
+      position: relative;
+      width: min(900px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 45px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .panel {
+      padding: 38px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 27px;
+      background: rgba(255, 255, 255, 0.17);
+      box-shadow: 0 20px 55px rgba(54, 27, 88, 0.25);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      text-shadow: 0 5px 18px rgba(54, 27, 88, 0.25);
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 16px auto 30px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .vote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .vote-card {
+      display: block;
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      border-radius: 21px;
+      color: white;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 12px 25px rgba(54, 27, 88, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+      transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .vote-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.29);
+      box-shadow: 0 18px 34px rgba(54, 27, 88, 0.26);
+    }
+
+    .vote-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .vote-card span {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.5;
+    }
+
+    .thanks {
+      margin-top: 28px;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: 620px) {
+      .vote-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 30px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <a class="back" href="index.html">
+      ← Back to home
+    </a>
+
+    <section class="panel">
+      <h1>Vote for WishingWillowMC</h1>
+
+      <p class="intro">
+        Every vote helps new players discover the server.
+        You will also receive in-game rewards for each successful vote.
+      </p>
+
+      <div class="vote-grid">
+        <a
+          class="vote-card"
+          href="https://minecraftservers.org/server/690154"
+          target="_blank"
+          rel="noopener"
+        >
+          <strong>✦ MinecraftServers.org</strong>
+          <span>Open our listing and cast your vote.</span>
+        </a>
+
+        <a
+          class="vote-card"
+          href="https://minecraft-server-list.com/server/521724/vote/"
+          target="_blank"
+          rel="noopener"
+        >
+          <strong>✦ Minecraft-Server-List.com</strong>
+          <span>Vote here to receive another reward.</span>
+        </a>
+      </div>
+
+      <div class="thanks">
+        Thank you for supporting WishingWillowMC. ✨
+      </div>
+    </section>
+  </main>
+</body>
+</html>
