@@ -1,338 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>WishingWillowMC</title>
+  <title>WishingWillowMC</title>
 
-.features{
-    margin:30px 0;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
+  <meta
+    name="description"
+    content="A magical Minecraft survival community where ranks are earned through adventure."
+  >
 
-.feature{
-    background:rgba(255,255,255,.88);
-    border:1px solid rgba(139,84,255,.15);
-    border-radius:20px;
-    padding:24px;
-    box-shadow:0 10px 28px rgba(91,62,115,.08);
-}
-
-.feature h2{
-    margin:0 0 10px;
-    font-size:20px;
-    color:#68439b;
-}
-
-.feature p{
-    margin:0;
-    color:#746a80;
-    line-height:1.55;
-}
-
-footer{
-    text-align:center;
-    padding:20px 0 35px;
-    color:#817589;
-}
-
-@media(max-width:800px){
-    .features{
-        grid-template-columns:1fr 1fr;
+  <style>
+    * {
+      box-sizing: border-box;
     }
-}
 
-@media(max-width:550px){
-    .features{
-        grid-template-columns:1fr;
+    :root {
+      --cyan: #42e8f5;
+      --purple: #8a4fff;
+      --magenta: #f154cf;
+      --green: #74e878;
+      --gold: #ffd66b;
+      --white: #fffaff;
+      --glass: rgba(255, 255, 255, 0.17);
+      --glass-border: rgba(255, 255, 255, 0.34);
+      --dark-purple: #35204f;
     }
-}
-    
-<style>
 
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:
-    radial-gradient(circle at top left,#ead9ff 0%,transparent 30%),
-    radial-gradient(circle at top right,#dfffd8 0%,transparent 30%),
-    linear-gradient(#fffdf8,#f9f4ff);
-
-    color:#44345c;
-}
-
-.wrapper{
-    width:min(1100px,95%);
-    margin:auto;
-}
-
-header{
-    text-align:center;
-    padding:35px 0;
-}
-
-header img{
-    width:100%;
-    max-width:950px;
-}
-
-.hero{
-
-    background:white;
-    border-radius:25px;
-    padding:50px;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-    text-align:center;
-}
-
-h1{
-
-    margin-top:0;
-
-    font-family:Georgia;
-
-    font-size:52px;
-
-    background:linear-gradient(90deg,#8b54ff,#d36dff,#62d06f);
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-}
-
-.tagline{
-
-    font-size:22px;
-
-    color:#6f6682;
-
-    max-width:700px;
-
-    margin:auto;
-
-    line-height:1.6;
-
-}
-
-.serverbox{
-
-    display:inline-flex;
-
-    margin-top:35px;
-
-    background:#faf7ff;
-
-    border:2px solid #d7b9ff;
-
-    border-radius:999px;
-
-    overflow:hidden;
-
-}
-
-.serverbox span{
-
-    padding:18px 25px;
-
-    font-weight:bold;
-
-}
-
-.serverbox button{
-
-    border:0;
-
-    background:#8b54ff;
-
-    color:white;
-
-    padding:18px 25px;
-
-    cursor:pointer;
-
-}
-
-.buttons{
-
-    margin-top:40px;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:15px;
-
-}
-
-.buttons a{
-
-    text-decoration:none;
-
-    color:white;
-
-    padding:22px;
-
-    border-radius:18px;
-
-    font-weight:bold;
-
-    transition:.2s;
-
-}
-
-.buttons a:hover{
-
-    transform:translateY(-3px);
-
-}
-
-.discord{background:#7c5cff;}
-
-.vote{background:#64be5b;}
-
-.map{background:#54bfc5;}
-
-.store{background:#efc75c;color:#443000!important;}
-
-@media(max-width:800px){
-
-.buttons{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-}
-
-@media(max-width:550px){
-
-.buttons{
-
-grid-template-columns:1fr;
-
-}
-
-.serverbox{
-
-display:flex;
-
-flex-direction:column;
-
-border-radius:20px;
-
-}
-
-}
-
-</style>
-
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 12% 12%,
+          rgba(66, 232, 245, 0.9),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 88% 18%,
+          rgba(241, 84, 207, 0.8),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(138, 79, 255, 0.85),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #17bed0 0%,
+          #7445e8 45%,
+          #d93fc3 100%
+        );
+
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      opacity: 0.65;
+
+      background-image:
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.95) 0 1px,
+          transparent 1.8px
+        ),
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.65) 0 1.5px,
+          transparent 2.3px
+        );
+
+      background-size:
+        42px 42px,
+        91px 91px;
+
+      background-position:
+        0 0,
+        28px 21px;
+
+      animation: sparkleMove 25s linear infinite;
+    }
+
+    body::after {
+      opacity: 0.23;
+
+      background:
+        radial-gradient(
+          circle at 20% 30%,
+          white 0 2px,
+          transparent 3px
+        ),
+        radial-gradient(
+          circle at 75% 15%,
+          white 0 2px,
+          transparent 3px
+        ),
+        radial-gradient(
+          circle at 65% 72%,
+          white 0 2px,
+          transparent 3px
+        ),
+        radial-gradient(
+          circle at 30% 85%,
+          white 0 2px,
+          transparent 3px
+        );
+
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes sparkleMove {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-90px);
+      }
+    }
+
+    @keyframes twinkle {
+      from {
+        opacity: 0.12;
+      }
+
+      to {
+        opacity: 0.4;
+      }
+    }
+
+    .page {
+      width: min(1100px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+
+    .banner-panel {
+      padding: 18px;
+      border: 1px solid var(--glass-border);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow:
+        0 20px 55px rgba(54, 27, 88, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .banner-panel img {
+      display: block;
+      width: 100%;
+      max-width: 936px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-top: 24px;
+      padding: 52px 30px 38px;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.17);
+      box-shadow:
+        0 20px 55px rgba(54, 27, 88, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 7vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      text-shadow:
+        0 0 18px rgba(255, 255, 255, 0.45),
+        0 6px 20px rgba(65, 29, 97, 0.24);
+    }
+
+    .tagline {
+      max-width: 730px;
+      margin: 20px auto 30px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(1.05rem, 2.5vw, 1.28rem);
+      line-height: 1.65;
+      text-shadow: 0 2px 8px rgba(53, 32, 79, 0.24);
+    }
+
+    .ip-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 100%;
+      padding: 12px 14px 12px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.87);
+      color: var(--dark-purple);
+      box-shadow:
+        0 12px 30px rgba(56, 30, 86, 0.2),
+        0 0 24px rgba(255, 255, 255, 0.17);
+    }
+
+    .ip-text {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: clamp(0.95rem, 2.6vw, 1.13rem);
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      color: white;
+      background: linear-gradient(135deg, var(--purple), var(--magenta));
+      font-weight: bold;
+      cursor: pointer;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .copy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(93, 35, 135, 0.28);
+    }
+
+    .copy-message {
+      height: 22px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: flex;
+      min-height: 82px;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.37);
+      border-radius: 21px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.02rem;
+      font-weight: bold;
+      box-shadow:
+        0 12px 25px rgba(52, 27, 79, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+      transition:
+        transform 0.18s ease,
+        filter 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      filter: brightness(1.08);
+      box-shadow:
+        0 18px 34px rgba(52, 27, 79, 0.28),
+        0 0 25px rgba(255, 255, 255, 0.18);
+    }
+
+    .discord {
+      background: linear-gradient(135deg, #7559dc, #a875f2);
+    }
+
+    .vote {
+      background: linear-gradient(135deg, #45bd70, #87e76d);
+    }
+
+    .map {
+      background: linear-gradient(135deg, #26bccc, #68e5e1);
+    }
+
+    .store {
+      color: #4a3411;
+      background: linear-gradient(135deg, #efbc45, #ffe381);
+    }
+
+    .coming-soon {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.72rem;
+      opacity: 0.82;
+    }
+
+    .features-panel {
+      margin-top: 26px;
+      padding: 34px 28px;
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow:
+        0 20px 55px rgba(54, 27, 88, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .features-panel h2 {
+      margin: 0 0 25px;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      text-shadow: 0 3px 12px rgba(65, 29, 97, 0.22);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      padding: 23px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 10px 24px rgba(54, 27, 88, 0.13);
+
+      transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .feature-icon {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.65rem;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .wish {
+      margin-top: 27px;
+      padding: 30px 18px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-style: italic;
+      text-shadow:
+        0 0 16px rgba(255, 255, 255, 0.45),
+        0 3px 10px rgba(65, 29, 97, 0.22);
+    }
+
+    footer {
+      padding: 28px 10px 4px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.83);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .buttons,
+      .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 18px, 1100px);
+        padding-top: 12px;
+      }
+
+      .banner-panel {
+        padding: 9px;
+        border-radius: 18px;
+      }
+
+      .hero {
+        padding: 36px 16px 27px;
+        border-radius: 22px;
+      }
+
+      .buttons,
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .ip-box {
+        width: 100%;
+        flex-direction: column;
+        border-radius: 20px;
+      }
+
+      .copy-button {
+        width: 100%;
+      }
+
+      .features-panel {
+        padding: 27px 16px;
+        border-radius: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
 
-<div class="wrapper">
+    <section class="banner-panel">
+      <img
+        src="WWMC_BANNER.gif"
+        alt="WishingWillowMC — Survival, Community, Adventure"
+      >
+    </section>
 
-<header>
+    <section class="hero">
+      <h1>A little magic.<br>A lot of adventure.</h1>
 
-<img src="WWMC_BANNER.gif">
+      <p class="tagline">
+        Friendly survival with earnable ranks, custom content,
+        community events, and a welcoming place to build your next home.
+      </p>
 
-</header>
+      <div class="ip-box">
+        <span class="ip-text" id="server-ip">
+          play.wishingwillowmc.net
+        </span>
 
-<section class="hero">
+        <button class="copy-button" id="copy-button" type="button">
+          Copy IP
+        </button>
+      </div>
 
-<h1>A little magic.<br>A lot of adventure.</h1>
+      <div class="copy-message" id="copy-message"></div>
 
-<p class="tagline">
+      <div class="buttons">
+        <a
+          class="button discord"
+          href="https://discord.gg/ncvGB9KYyT"
+          target="_blank"
+          rel="noopener"
+        >
+          💜 Join Discord
+        </a>
 
-Friendly survival with earnable ranks, custom items, community events,
+        <a class="button vote" href="vote.html">
+          🗳️ Vote
+        </a>
 
-and a welcoming place to build your next home.
+        <a class="button map disabled-link" href="#">
+          <span>
+            🗺️ Live Map
+            <span class="coming-soon">Coming Soon</span>
+          </span>
+        </a>
 
-</p>
+        <a class="button store disabled-link" href="#">
+          <span>
+            🛒 Store
+            <span class="coming-soon">Coming Soon</span>
+          </span>
+        </a>
+      </div>
+    </section>
 
-<div class="serverbox">
+    <section class="features-panel">
+      <h2>✦ Why you’ll love it here ✦</h2>
 
-<span id="ip">play.wishingwillowmc.net</span>
+      <div class="features">
+        <article class="feature">
+          <span class="feature-icon">❈</span>
+          <h3>Friendly Community</h3>
+          <p>
+            A calm and welcoming place where players can build,
+            explore, and play at their own pace.
+          </p>
+        </article>
 
-<button onclick="copyIP()">Copy IP</button>
+        <article class="feature">
+          <span class="feature-icon">✦</span>
+          <h3>Earnable Ranks</h3>
+          <p>
+            Progress from Roamer to Wishkeeper through gameplay,
+            achievements, and adventure.
+          </p>
+        </article>
 
-</div>
+        <article class="feature">
+          <span class="feature-icon">✧</span>
+          <h3>Custom Events</h3>
+          <p>
+            Join Starfall events, seasonal activities,
+            competitions, and community adventures.
+          </p>
+        </article>
 
-<div class="buttons">
+        <article class="feature">
+          <span class="feature-icon">❉</span>
+          <h3>Claims and Shops</h3>
+          <p>
+            Protect your builds, open player shops,
+            trade items, and join the server economy.
+          </p>
+        </article>
 
-<a class="discord" href="https://discord.gg/ncvGB9KYyT">💜 Join Discord</a>
+        <article class="feature">
+          <span class="feature-icon">✵</span>
+          <h3>Custom Content</h3>
+          <p>
+            Discover magical tomes, cosmetics,
+            collectibles, custom items, and special crates.
+          </p>
+        </article>
 
-<a class="vote" href="vote.html">🗳 Vote</a>
+        <article class="feature">
+          <span class="feature-icon">✺</span>
+          <h3>Java and Bedrock</h3>
+          <p>
+            Players from Java and Bedrock can join
+            and explore the same world together.
+          </p>
+        </article>
+      </div>
 
-<a class="map" href="#">🗺 Live Map<br><small>Coming Soon</small></a>
+      <div class="wish">
+        “Every adventure begins with a single wish.”
+      </div>
+    </section>
 
-<a class="store" href="#">🛒 Store<br><small>Coming Soon</small></a>
+    <footer>
+      © 2026 WishingWillowMC · Ranks earned through adventure
+    </footer>
 
-</div>
+  </main>
 
-</section>
+  <script>
+    const copyButton = document.getElementById("copy-button");
+    const copyMessage = document.getElementById("copy-message");
+    const serverIp = document
+      .getElementById("server-ip")
+      .textContent
+      .trim();
 
-<section class="features">
+    copyButton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(serverIp);
 
-<div class="feature">
-<h2>🌿 Friendly Community</h2>
-<p>A calm and welcoming place where players can build, explore, and play at their own pace.</p>
-</div>
+        copyButton.textContent = "Copied!";
+        copyMessage.textContent = "Server IP copied to your clipboard.";
 
-<div class="feature">
-<h2>⭐ Earnable Ranks</h2>
-<p>Progress from Roamer to Wishkeeper through gameplay, achievements, and adventure.</p>
-</div>
+        setTimeout(() => {
+          copyButton.textContent = "Copy IP";
+          copyMessage.textContent = "";
+        }, 1800);
+      } catch {
+        copyMessage.textContent = serverIp;
+      }
+    });
 
-<div class="feature">
-<h2>🌠 Custom Events</h2>
-<p>Take part in Starfall events, seasonal activities, competitions, and community adventures.</p>
-</div>
-
-<div class="feature">
-<h2>🏡 Claims & Shops</h2>
-<p>Protect your builds, open player shops, trade items, and take part in the server economy.</p>
-</div>
-
-<div class="feature">
-<h2>✨ Custom Content</h2>
-<p>Discover magical tomes, custom items, collectibles, cosmetics, and special crates.</p>
-</div>
-
-<div class="feature">
-<h2>📱 Java + Bedrock</h2>
-<p>Players from both Java and Bedrock can join and explore the same world together.</p>
-</div>
-
-</section>
-
-<footer>
-© 2026 WishingWillowMC · Ranks earned through adventure
-</footer>    
-    
-</div>
-
-<script>
-
-function copyIP(){
-
-navigator.clipboard.writeText(
-
-document.getElementById("ip").innerText
-
-);
-
-alert("Server IP copied!");
-
-}
-
-</script>
-
+    document.querySelectorAll(".disabled-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+      });
+    });
+  </script>
 </body>
-
 </html>
