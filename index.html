@@ -6,6 +6,51 @@
 
 <title>WishingWillowMC</title>
 
+.features{
+    margin:30px 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.feature{
+    background:rgba(255,255,255,.88);
+    border:1px solid rgba(139,84,255,.15);
+    border-radius:20px;
+    padding:24px;
+    box-shadow:0 10px 28px rgba(91,62,115,.08);
+}
+
+.feature h2{
+    margin:0 0 10px;
+    font-size:20px;
+    color:#68439b;
+}
+
+.feature p{
+    margin:0;
+    color:#746a80;
+    line-height:1.55;
+}
+
+footer{
+    text-align:center;
+    padding:20px 0 35px;
+    color:#817589;
+}
+
+@media(max-width:800px){
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:550px){
+    .features{
+        grid-template-columns:1fr;
+    }
+}
+    
 <style>
 
 body{
@@ -232,6 +277,44 @@ and a welcoming place to build your next home.
 
 </section>
 
+<section class="features">
+
+<div class="feature">
+<h2>🌿 Friendly Community</h2>
+<p>A calm and welcoming place where players can build, explore, and play at their own pace.</p>
+</div>
+
+<div class="feature">
+<h2>⭐ Earnable Ranks</h2>
+<p>Progress from Roamer to Wishkeeper through gameplay, achievements, and adventure.</p>
+</div>
+
+<div class="feature">
+<h2>🌠 Custom Events</h2>
+<p>Take part in Starfall events, seasonal activities, competitions, and community adventures.</p>
+</div>
+
+<div class="feature">
+<h2>🏡 Claims & Shops</h2>
+<p>Protect your builds, open player shops, trade items, and take part in the server economy.</p>
+</div>
+
+<div class="feature">
+<h2>✨ Custom Content</h2>
+<p>Discover magical tomes, custom items, collectibles, cosmetics, and special crates.</p>
+</div>
+
+<div class="feature">
+<h2>📱 Java + Bedrock</h2>
+<p>Players from both Java and Bedrock can join and explore the same world together.</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 WishingWillowMC · Ranks earned through adventure
+</footer>    
+    
 </div>
 
 <script>
