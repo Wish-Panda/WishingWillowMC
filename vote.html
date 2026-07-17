@@ -120,11 +120,15 @@
     }
 
     .vote-card {
-      display: block;
-      padding: 26px;
+      display: flex;
+      min-height: 96px;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
       border: 1px solid rgba(255, 255, 255, 0.36);
       border-radius: 21px;
       color: white;
+      text-align: center;
       text-decoration: none;
       background: rgba(255, 255, 255, 0.2);
       box-shadow:
@@ -144,14 +148,7 @@
     }
 
     .vote-card strong {
-      display: block;
-      margin-bottom: 8px;
       font-size: 1.18rem;
-    }
-
-    .vote-card span {
-      color: rgba(255, 255, 255, 0.84);
-      line-height: 1.5;
     }
 
     .thanks {
@@ -195,7 +192,6 @@
           rel="noopener"
         >
           <strong>✦ MinecraftServers.org</strong>
-          <span>Open our listing and cast your vote.</span>
         </a>
 
         <a
@@ -205,6 +201,24 @@
           rel="noopener"
         >
           <strong>✦ Minecraft-Server-List.com</strong>
+        </a>
+
+        <a
+          class="vote-card"
+          href="https://www.minerank.com/wishingwillowmc/vote"
+          target="_blank"
+          rel="noopener"
+        >
+          <strong>✦ MineRank</strong>
+        </a>
+
+        <a
+          class="vote-card"
+          href="https://minecraft.buzz/vote/wishingwillowmc"
+          target="_blank"
+          rel="noopener"
+        >
+          <strong>✦ Minecraft.Buzz</strong>
         </a>
       </div>
 
