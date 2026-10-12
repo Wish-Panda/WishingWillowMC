@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -259,10 +260,16 @@
     }
 
     .buttons {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: flex;
+      justify-content: center;
       gap: 16px;
-      margin-top: 28px;
+      margin: 28px auto 0;
+      max-width: 900px;
+    }
+
+    .buttons .button {
+      flex: 1 1 0;
+      min-width: 0;
     }
 
     .button {
@@ -305,18 +312,6 @@
 
     .map {
       background: linear-gradient(135deg, #26bccc, #68e5e1);
-    }
-
-    .store {
-      color: #4a3411;
-      background: linear-gradient(135deg, #efbc45, #ffe381);
-    }
-
-    .coming-soon {
-      display: block;
-      margin-top: 3px;
-      font-size: 0.72rem;
-      opacity: 0.82;
     }
 
     .features-panel {
@@ -406,7 +401,14 @@
     }
 
     @media (max-width: 820px) {
-      .buttons,
+      .buttons {
+        flex-wrap: wrap;
+      }
+
+      .buttons .button {
+        flex: 1 1 220px;
+      }
+
       .features {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -428,7 +430,15 @@
         border-radius: 22px;
       }
 
-      .buttons,
+      .buttons {
+        flex-direction: column;
+      }
+
+      .buttons .button {
+        flex: 0 0 auto;
+        width: 100%;
+      }
+
       .features {
         grid-template-columns: 1fr;
       }
@@ -495,13 +505,14 @@
           🗳️ Vote
         </a>
 
-        <a class="button map"
-   href="http://play.wishingwillowmc.net:25568"
-   target="_blank"
-   rel="noopener noreferrer">
-  <span>🗺️ Live Map</span>
+        <a
+          class="button map"
+          href="http://play.wishingwillowmc.net:25568"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>🗺️ Live Map</span>
         </a>
-        
       </div>
     </section>
 
@@ -597,12 +608,6 @@
       } catch {
         copyMessage.textContent = serverIp;
       }
-    });
-
-    document.querySelectorAll(".disabled-link").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-      });
     });
   </script>
 </body>
